@@ -3,6 +3,7 @@
   display: flex; align-items: center; justify-content: center;
   position: relative; z-index: 1;
   background: var(--gradient-hero);
+  padding: var(--nav-height) 0 var(--space-2xl);
 }
 
 .hero-content {
@@ -16,9 +17,10 @@
 /* Terminal */
 .terminal-line {
   font-family: var(--font-mono);
-  font-size: clamp(var(--fs-xs), 2.2vw, var(--fs-base));
+  font-size: clamp(0.7rem, 2.2vw, var(--fs-base));
   line-height: 2;
   white-space: pre-wrap;
+  word-break: break-word;
 }
 .terminal-line.cmd { color: var(--accent-primary); }
 .terminal-line.output { color: #c3e88d; }
@@ -31,7 +33,7 @@
 .hero-info.visible { opacity: 1; transform: translateY(0); }
 
 .hero-name {
-  font-size: clamp(var(--fs-2xl), 4vw, var(--fs-4xl));
+  font-size: clamp(var(--fs-xl), 4vw, var(--fs-4xl));
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: var(--space-xs);
@@ -39,13 +41,13 @@
 
 .hero-role {
   font-family: var(--font-mono);
-  font-size: var(--fs-lg);
+  font-size: clamp(var(--fs-sm), 2vw, var(--fs-lg));
   color: var(--accent-primary);
   font-weight: 500;
 }
 
 .hero-subtitle {
-  font-size: var(--fs-base);
+  font-size: clamp(var(--fs-sm), 1.8vw, var(--fs-base));
   color: var(--text-secondary);
   margin-top: var(--space-xs);
 }
@@ -81,8 +83,12 @@
   transform: translateY(-1px);
 }
 
+@media (max-width: 768px) {
+  .hero-content { padding: 0 var(--space-md); gap: var(--space-xl); }
+}
+
 @media (max-width: 480px) {
-  .hero-content { padding: 0 var(--space-md); }
+  .hero-content { padding: 0 var(--space-sm); }
   .hero-actions { flex-direction: column; }
-  .btn { justify-content: center; }
+  .btn { justify-content: center; padding: 12px 20px; }
 }

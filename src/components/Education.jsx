@@ -21,7 +21,7 @@ export default function Education() {
                 <span className="terminal-dot yellow"></span>
                 <span className="terminal-dot green"></span>
                 <span className="terminal-title">
-                  {edu.institution.split(' ')[0].toLowerCase()}.py
+                  {edu.degree.split(' ')[0].toLowerCase()}.py
                 </span>
                 {edu.current && <span className="edu-running">● active</span>}
               </div>

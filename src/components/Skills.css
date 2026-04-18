@@ -38,3 +38,13 @@
   color: var(--accent-primary);
   background: rgba(0, 255, 200, 0.06);
 }
+
+@media (max-width: 768px) {
+  .skills-list { gap: var(--space-lg); }
+  .skill-chip { font-size: var(--fs-xs); padding: 5px 10px; }
+}
+
+@media (max-width: 480px) {
+  .skill-items { gap: var(--space-xs); }
+  .skill-chip { padding: 4px 8px; font-size: 0.7rem; }
+}

@@ -17,7 +17,8 @@
 }
 
 .edu-degree {
-  font-size: var(--fs-base); font-weight: 600;
+  font-size: clamp(var(--fs-sm), 2vw, var(--fs-base));
+  font-weight: 600;
   color: var(--text-primary); margin-bottom: 4px;
 }
 
@@ -42,6 +43,7 @@
   font-family: var(--font-mono);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .edu-list { grid-template-columns: 1fr; }
+  .edu-institution { font-size: var(--fs-xs); }
 }

@@ -14,10 +14,11 @@
 
 .about-code {
   font-family: var(--font-mono);
-  font-size: var(--fs-sm);
+  font-size: clamp(0.7rem, 2vw, var(--fs-sm));
   line-height: 2;
+  overflow-x: auto;
 }
-.about-code p { white-space: pre; }
+.about-code p { white-space: nowrap; }
 
 /* Bio as Python docstring inside the terminal */
 .about-bio-block {
@@ -76,6 +77,13 @@
   display: block;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .about-stats { grid-template-columns: repeat(2, 1fr); }
+  .about-bio-block { padding: var(--space-sm) var(--space-md); }
+}
+
+@media (max-width: 480px) {
+  .about-stats { gap: var(--space-sm); }
+  .stat-card { padding: var(--space-md) var(--space-sm); }
+  .stat-number { font-size: var(--fs-xl); }
 }
