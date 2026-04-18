@@ -1,113 +1,81 @@
-/* About section — terminal-style Python class */
-.about-terminal {
-  max-width: 800px;
+.about-layout {
+  max-width: var(--content-width);
   margin: 0 auto;
-}
-
-.code-block {
-  font-family: var(--font-mono);
-  font-size: clamp(var(--fs-xs), 1.8vw, var(--fs-sm));
-  line-height: 1.9;
-}
-
-.code-line {
   display: flex;
-  align-items: baseline;
-  white-space: pre;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.about-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.about-code {
   font-family: var(--font-mono);
-  font-size: inherit;
-  color: var(--text-primary);
+  font-size: var(--fs-sm);
+  line-height: 2;
+}
+.about-code p { white-space: pre; }
+
+/* Bio as Python docstring inside the terminal */
+.about-bio-block {
+  margin-top: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: rgba(195, 232, 141, 0.03);
+  border-left: 2px solid rgba(195, 232, 141, 0.2);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
-.code-line.empty {
-  height: 1.9em;
-}
-
-.code-close {
+.bio-decorator {
   font-family: var(--font-mono);
-  font-size: clamp(var(--fs-xs), 1.8vw, var(--fs-sm));
-  padding: 0 var(--space-xl);
-  padding-bottom: var(--space-md);
+  font-size: var(--fs-sm);
+  color: #c3e88d;
+  opacity: 0.6;
+  display: block;
+  line-height: 1.2;
 }
-
-.line-num {
-  color: var(--text-muted);
-  min-width: 36px;
-  text-align: right;
-  margin-right: var(--space-lg);
-  user-select: none;
-  opacity: 0.5;
-  font-size: 0.85em;
-}
-
-.code-keyword { color: #c792ea; font-weight: 600; }
-.code-class { color: #ffcb6b; }
-.code-func { color: #82aaff; }
-.code-paren { color: var(--text-muted); }
-.code-self { color: #f07178; font-style: italic; }
-.code-attr { color: var(--text-primary); }
-.code-type { color: #ffcb6b; }
-.code-string { color: #c3e88d; }
-.code-string-triple { color: #c3e88d; }
-.code-var { color: #82aaff; }
-.code-key { color: var(--accent-primary); }
-.code-indent { padding-left: var(--space-xl); }
 
 .about-bio {
   color: var(--text-secondary);
   line-height: 1.8;
   font-size: var(--fs-sm);
-  padding: var(--space-md) var(--space-xl);
-  padding-left: calc(36px + var(--space-lg) + var(--space-xl) + 56px);
-  border-left: 2px solid rgba(195, 232, 141, 0.15);
-  margin-left: calc(36px + var(--space-lg));
-  background: rgba(195, 232, 141, 0.03);
+  padding: var(--space-sm) 0;
 }
 
-/* Stats row */
-.about-stats-row {
+/* Stats */
+.about-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-lg);
-  max-width: 800px;
-  margin: var(--space-2xl) auto 0;
+  gap: var(--space-md);
 }
 
 .stat-card {
-  padding: var(--space-xl);
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-  transition: all var(--transition-base);
+  padding: var(--space-lg) var(--space-md);
+  background: rgba(17, 24, 39, 0.4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-base);
 }
-
-.stat-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-glow);
-}
+.stat-card:hover { border-color: var(--border-accent); }
 
 .stat-number {
   font-family: var(--font-mono);
-  font-size: var(--fs-3xl);
+  font-size: var(--fs-2xl);
   font-weight: 700;
   color: var(--accent-primary);
+  display: block;
 }
 
 .stat-label {
-  font-family: var(--font-mono);
   font-size: var(--fs-xs);
   color: var(--text-muted);
-  letter-spacing: 0.05em;
+  margin-top: var(--space-xs);
+  display: block;
 }
 
-@media (max-width: 768px) {
-  .about-stats-row {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .about-bio {
-    padding-left: var(--space-xl);
-    margin-left: 0;
-    border-left: none;
-  }
+@media (max-width: 600px) {
+  .about-stats { grid-template-columns: repeat(2, 1fr); }
 }

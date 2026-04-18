@@ -17,7 +17,7 @@ export default function Hero() {
             <span className="terminal-dot red"></span>
             <span className="terminal-dot yellow"></span>
             <span className="terminal-dot green"></span>
-            <span className="terminal-title">Python 3.12.0 — sahil@portfolio</span>
+            <span className="terminal-title">python3 — sahil@portfolio</span>
           </div>
           <div className="terminal-body">
             <p className="terminal-line cmd">
@@ -34,7 +34,7 @@ export default function Hero() {
               </p>
             )}
             {line3.done && (
-              <p className="terminal-line output string-val">
+              <p className="terminal-line output">
                 {line4.displayed}<span className={`cursor ${!line4.done ? '' : 'blink'}`}>█</span>
               </p>
             )}
@@ -42,6 +42,7 @@ export default function Hero() {
         </div>
 
         <div className={`hero-info ${line4.done ? 'visible' : ''}`}>
+          <h1 className="hero-name">{personalInfo.name}</h1>
           <p className="hero-role">{personalInfo.title}</p>
           <p className="hero-subtitle">
             MS Computer Science @ <span className="highlight">TU Dresden</span>
@@ -50,7 +51,7 @@ export default function Hero() {
             <a href="#contact" className="btn btn-primary">
               <FiMail /> Get in Touch
             </a>
-            <a href="#projects" className="btn btn-outline">
+            <a href="#projects" className="btn btn-ghost">
               <FiArrowDown /> View Projects
             </a>
           </div>

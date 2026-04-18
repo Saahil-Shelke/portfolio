@@ -9,17 +9,13 @@ export default function Projects() {
     <section className="section" id="projects">
       <div ref={ref} className={`reveal ${visible ? 'visible' : ''}`}>
         <div className="section-header">
-          <span className="section-label">{'# projects.py'}</span>
-          <h2 className="section-title">What I've Built</h2>
+          <span className="section-label"># projects</span>
+          <h2 className="section-title">Featured Projects</h2>
           <div className="section-divider"></div>
         </div>
         <div className="projects-grid">
-          {projects.map((project, i) => (
-            <div
-              key={project.id}
-              className="terminal-window project-terminal"
-              style={{ animationDelay: `${i * 0.1}s` }}
-            >
+          {projects.map((project) => (
+            <div key={project.id} className="terminal-window project-card">
               <div className="terminal-header">
                 <span className="terminal-dot red"></span>
                 <span className="terminal-dot yellow"></span>
@@ -29,33 +25,19 @@ export default function Projects() {
                 </span>
               </div>
               <div className="terminal-body project-body">
-                <div className="project-icon">{project.icon}</div>
-                <p className="project-def">
-                  <span className="code-keyword">class</span>{' '}
-                  <span className="code-class">{project.title.replace(/[\s—&]/g, '')}</span>:
-                </p>
-                <p className="project-docstring">
-                  <span className="code-string-triple">"""</span>
-                  <span className="code-string">{project.description}</span>
-                  <span className="code-string-triple">"""</span>
-                </p>
-                <div className="project-highlights">
-                  {project.highlights.map((h, j) => (
-                    <span key={j} className="highlight-tag">
-                      <span className="tag-hash"># </span>{h}
-                    </span>
-                  ))}
+                <div className="project-top">
+                  <span className="project-icon">{project.icon}</span>
+                  <h3 className="project-title">{project.title}</h3>
                 </div>
-                <div className="project-tech">
-                  <span className="tech-label">requirements</span>
-                  <span className="tech-eq"> = </span>
-                  <span className="tech-bracket">[</span>
+                <div className="project-desc-block">
+                  <span className="desc-decorator">{'"""'}</span>
+                  <p className="project-desc">{project.description}</p>
+                  <span className="desc-decorator">{'"""'}</span>
+                </div>
+                <div className="project-tags">
                   {project.tech.map((t, j) => (
-                    <span key={j} className="tech-tag">
-                      "{t}"{j < project.tech.length - 1 ? ', ' : ''}
-                    </span>
+                    <span key={j} className="project-tag">{t}</span>
                   ))}
-                  <span className="tech-bracket">]</span>
                 </div>
               </div>
             </div>

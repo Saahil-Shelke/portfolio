@@ -24,10 +24,9 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar">
       <div className="navbar-inner">
         <a href="#" className="navbar-logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <span className="logo-prompt">{'>>>'}</span>{' '}
-          <span className="logo-text">sahil</span>
-          <span className="logo-dot">.</span>
-          <span className="logo-method">py</span>
+          <span className="logo-prompt">{'>>>'}</span>
+          <span className="logo-name"> sahil</span>
+          <span className="logo-ext">.py</span>
         </a>
         <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
           {navLinks.map((link) => (
@@ -36,13 +35,13 @@ export default function Navbar() {
                 className={`nav-link ${active === link.id ? 'active' : ''}`}
                 onClick={() => handleClick(link.id)}
               >
-                <span className="nav-import">from</span> portfolio <span className="nav-import">import</span> {link.label}
+                {link.label}
               </button>
             </li>
           ))}
         </ul>
         <button className="navbar-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
-          {menuOpen ? <FiX size={22} /> : <FiMenu size={22} />}
+          {menuOpen ? <FiX size={20} /> : <FiMenu size={20} />}
         </button>
       </div>
     </nav>

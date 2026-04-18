@@ -1,103 +1,79 @@
-/* Experience section — terminal-style Python classes */
-.exp-container {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xl);
-  max-width: 800px;
+.exp-list {
+  display: flex; flex-direction: column;
+  gap: var(--space-lg);
+  max-width: var(--content-width);
   margin: 0 auto;
 }
 
-.exp-terminal {
-  transition: all var(--transition-base);
+.exp-card { transition: border-color var(--transition-base); }
+.exp-card:hover { border-color: var(--border-accent); }
+
+.exp-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: var(--space-md);
 }
 
-.exp-terminal:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-glow-strong), var(--shadow-lg);
+.exp-role {
+  font-size: var(--fs-lg); font-weight: 600;
+  color: var(--text-primary); margin-bottom: 2px;
 }
 
-.exp-code {
-  font-family: var(--font-mono);
-  font-size: clamp(var(--fs-xs), 1.8vw, var(--fs-sm));
-  line-height: 1.9;
+.exp-company {
+  color: var(--accent-primary); font-size: var(--fs-sm);
+  font-weight: 500; margin-bottom: 4px;
 }
 
-.exp-code .code-line {
-  display: flex;
-  align-items: baseline;
-  white-space: pre;
-  font-family: var(--font-mono);
-  font-size: inherit;
-  color: var(--text-primary);
+.exp-meta {
+  display: flex; align-items: center; gap: var(--space-xs);
+  color: var(--text-muted); font-size: var(--fs-xs);
 }
+.exp-sep { opacity: 0.4; }
 
-.exp-expand-trigger {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--space-md) 0;
-  margin-top: var(--space-sm);
-  cursor: pointer;
-  font-family: var(--font-mono);
-  font-size: var(--fs-sm);
-  border-top: 1px solid var(--border-subtle);
-  transition: all var(--transition-fast);
-}
-
-.exp-expand-trigger:hover {
-  background: rgba(0, 255, 200, 0.03);
-}
-
-.exp-expand-label {
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
-}
-
-.exp-chevron {
+.exp-type {
+  font-family: var(--font-mono); font-size: var(--fs-xs);
+  padding: 3px 10px; border-radius: var(--radius-sm);
+  white-space: nowrap; flex-shrink: 0;
   color: var(--accent-primary);
+  background: rgba(0, 255, 200, 0.06);
+  border: 1px solid rgba(0, 255, 200, 0.12);
+}
+
+.exp-toggle {
+  display: flex; align-items: center; gap: var(--space-sm);
+  background: none; border: none; color: var(--text-muted);
+  font-family: var(--font-mono); font-size: var(--fs-xs);
+  cursor: pointer; padding: var(--space-sm) 0;
+  margin-top: var(--space-md);
+  transition: color var(--transition-fast);
+}
+.exp-toggle:hover { color: var(--accent-primary); }
+.exp-toggle svg {
   transition: transform var(--transition-base);
-  flex-shrink: 0;
+}
+.exp-toggle svg.rotated { transform: rotate(180deg); }
+
+.exp-details {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.exp-details.open { max-height: 500px; }
+
+.exp-details ul {
+  list-style: none; padding-top: var(--space-sm);
+  display: flex; flex-direction: column; gap: var(--space-sm);
 }
 
-.exp-chevron.rotated {
-  transform: rotate(180deg);
+.exp-details li {
+  position: relative; padding-left: var(--space-lg);
+  color: var(--text-secondary); font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+.exp-details li::before {
+  content: '▸'; position: absolute; left: 0;
+  color: var(--accent-primary); font-size: var(--fs-xs);
 }
 
-.exp-bullets {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.exp-bullets.expanded {
-  max-height: 600px;
-  padding-top: var(--space-sm);
-}
-
-.exp-bullets ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  padding-left: var(--space-md);
-}
-
-.exp-bullets li {
-  color: var(--text-secondary);
-  font-size: var(--fs-sm);
-  line-height: 1.7;
-}
-
-.bullet-prefix {
-  color: var(--accent-primary);
-  font-family: var(--font-mono);
-  font-weight: 600;
-}
-
-@media (max-width: 768px) {
-  .exp-code .code-line {
-    font-size: var(--fs-xs);
-  }
+@media (max-width: 600px) {
+  .exp-top { flex-direction: column; }
+  .exp-type { align-self: flex-start; }
 }

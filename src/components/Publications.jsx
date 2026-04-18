@@ -1,5 +1,6 @@
 import { publications, awards, volunteering } from '../data/portfolioData';
 import { useScrollReveal } from '../hooks';
+import { FiFileText, FiAward, FiUsers } from 'react-icons/fi';
 import './Publications.css';
 
 export default function Publications() {
@@ -9,90 +10,51 @@ export default function Publications() {
     <section className="section" id="publications">
       <div ref={ref} className={`reveal ${visible ? 'visible' : ''}`}>
         <div className="section-header">
-          <span className="section-label">{'# achievements.py'}</span>
-          <h2 className="section-title">Recognition</h2>
+          <span className="section-label"># achievements</span>
+          <h2 className="section-title">Publications & Awards</h2>
           <div className="section-divider"></div>
         </div>
 
-        <div className="terminal-window pub-terminal">
-          <div className="terminal-header">
-            <span className="terminal-dot red"></span>
-            <span className="terminal-dot yellow"></span>
-            <span className="terminal-dot green"></span>
-            <span className="terminal-title">achievements.py — Python 3.12</span>
+        <div className="achievements-layout">
+          {/* Publications */}
+          <div className="achievement-group">
+            <h3 className="achievement-group-title">
+              <FiFileText size={16} /> Publications
+            </h3>
+            {publications.map((pub, i) => (
+              <div key={i} className="achievement-card glass-card">
+                <h4 className="achievement-title">{pub.title}</h4>
+                <span className="achievement-venue">{pub.conference}</span>
+                <p className="achievement-desc">{pub.description}</p>
+              </div>
+            ))}
           </div>
-          <div className="terminal-body">
-            {/* Publications */}
-            <div className="pub-section">
-              <p className="pub-class-def">
-                <span className="code-keyword">class</span>{' '}
-                <span className="code-class">Publications</span>:
-              </p>
-              {publications.map((pub, i) => (
-                <div key={i} className="pub-entry">
-                  <p className="pub-attr">
-                    {'    '}title ={' '}
-                    <span className="code-string">"{pub.title}"</span>
-                  </p>
-                  <p className="pub-attr">
-                    {'    '}venue ={' '}
-                    <span className="code-string">"{pub.conference}"</span>
-                  </p>
-                  <p className="pub-attr">
-                    {'    '}
-                    <span className="code-comment"># {pub.description}</span>
-                  </p>
-                </div>
-              ))}
-            </div>
 
-            <div className="pub-divider"></div>
+          {/* Awards */}
+          <div className="achievement-group">
+            <h3 className="achievement-group-title">
+              <FiAward size={16} /> Awards
+            </h3>
+            {awards.map((award, i) => (
+              <div key={i} className="achievement-card glass-card">
+                <h4 className="achievement-title">{award.title}</h4>
+                <p className="achievement-desc">{award.description}</p>
+              </div>
+            ))}
+          </div>
 
-            {/* Awards */}
-            <div className="pub-section">
-              <p className="pub-class-def">
-                <span className="code-keyword">class</span>{' '}
-                <span className="code-class">Awards</span>:
-              </p>
-              {awards.map((award, i) => (
-                <div key={i} className="pub-entry">
-                  <p className="pub-attr">
-                    {'    '}title ={' '}
-                    <span className="code-string">"{award.title}"</span>
-                  </p>
-                  <p className="pub-attr">
-                    {'    '}
-                    <span className="code-comment"># {award.description}</span>
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="pub-divider"></div>
-
-            {/* Volunteering */}
-            <div className="pub-section">
-              <p className="pub-class-def">
-                <span className="code-keyword">class</span>{' '}
-                <span className="code-class">Volunteering</span>:
-              </p>
-              {volunteering.map((vol, i) => (
-                <div key={i} className="pub-entry">
-                  <p className="pub-attr">
-                    {'    '}role ={' '}
-                    <span className="code-string">"{vol.title}"</span>
-                  </p>
-                  <p className="pub-attr">
-                    {'    '}period ={' '}
-                    <span className="code-string">"{vol.period}"</span>
-                  </p>
-                  <p className="pub-attr">
-                    {'    '}
-                    <span className="code-comment"># {vol.description}</span>
-                  </p>
-                </div>
-              ))}
-            </div>
+          {/* Volunteering */}
+          <div className="achievement-group">
+            <h3 className="achievement-group-title">
+              <FiUsers size={16} /> Volunteering
+            </h3>
+            {volunteering.map((vol, i) => (
+              <div key={i} className="achievement-card glass-card">
+                <h4 className="achievement-title">{vol.title}</h4>
+                <span className="achievement-period">{vol.period}</span>
+                <p className="achievement-desc">{vol.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
