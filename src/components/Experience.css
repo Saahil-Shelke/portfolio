@@ -1,0 +1,64 @@
+.timeline { position: relative; padding-left: var(--space-3xl); }
+.timeline-item {
+  display: flex; gap: var(--space-xl); margin-bottom: var(--space-2xl); position: relative;
+}
+.timeline-marker {
+  position: absolute; left: calc(-1 * var(--space-3xl)); display: flex;
+  flex-direction: column; align-items: center;
+}
+.timeline-dot {
+  width: 14px; height: 14px; border-radius: 50%; background: var(--accent-primary);
+  border: 3px solid var(--bg-primary); box-shadow: 0 0 10px rgba(0,255,200,0.4);
+  z-index: 1; flex-shrink: 0;
+}
+.timeline-line {
+  width: 2px; flex: 1; background: linear-gradient(to bottom, var(--accent-primary), transparent);
+  margin-top: 4px; min-height: 60px;
+}
+.timeline-card {
+  flex: 1; padding: var(--space-xl); cursor: pointer;
+}
+.timeline-card-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+}
+.timeline-period {
+  font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent-primary);
+  background: rgba(0,255,200,0.08); padding: 2px 10px; border-radius: var(--radius-sm);
+  display: inline-block; margin-bottom: var(--space-sm);
+}
+.timeline-role {
+  font-size: var(--fs-xl); color: var(--text-primary); margin-bottom: var(--space-xs);
+}
+.timeline-company {
+  display: flex; align-items: center; gap: var(--space-sm);
+  color: var(--text-secondary); font-size: var(--fs-sm); margin-bottom: 2px;
+}
+.timeline-location {
+  display: flex; align-items: center; gap: var(--space-sm);
+  color: var(--text-muted); font-size: var(--fs-xs);
+}
+.timeline-chevron {
+  color: var(--accent-primary); transition: transform var(--transition-base);
+  flex-shrink: 0; margin-top: 4px;
+}
+.timeline-chevron.rotated { transform: rotate(180deg); }
+.timeline-bullets {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease, margin 0.4s ease;
+}
+.timeline-item.expanded .timeline-bullets {
+  max-height: 500px; margin-top: var(--space-lg);
+}
+.timeline-bullets ul {
+  list-style: none; display: flex; flex-direction: column; gap: var(--space-sm);
+}
+.timeline-bullets li {
+  position: relative; padding-left: var(--space-xl); color: var(--text-secondary);
+  font-size: var(--fs-sm); line-height: 1.6;
+}
+.timeline-bullets li::before {
+  content: '▹'; position: absolute; left: 0; color: var(--accent-primary);
+}
+@media (max-width: 768px) {
+  .timeline { padding-left: var(--space-xl); }
+  .timeline-marker { left: calc(-1 * var(--space-xl)); }
+}
