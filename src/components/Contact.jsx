@@ -1,20 +1,41 @@
 import { useState } from 'react';
 import { personalInfo } from '../data/portfolioData';
 import { useScrollReveal } from '../hooks';
-import { FiMail, FiMapPin, FiSend } from 'react-icons/fi';
+import { FiMail, FiMapPin, FiSend, FiCheck, FiAlertCircle } from 'react-icons/fi';
 import './Contact.css';
 
 export default function Contact() {
   const { ref, visible } = useScrollReveal();
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const mailto = `mailto:${personalInfo.email}?subject=Portfolio Contact from ${form.name}&body=${encodeURIComponent(form.message)}%0A%0AFrom: ${form.email}`;
-    window.open(mailto, '_blank');
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
+    setStatus('sending');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setStatus('sent');
+        setForm({ name: '', email: '', message: '' });
+        setTimeout(() => setStatus('idle'), 4000);
+      } else {
+        console.error('Send failed:', data.error);
+        setStatus('error');
+        setTimeout(() => setStatus('idle'), 4000);
+      }
+    } catch (err) {
+      console.error('Network error:', err);
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 4000);
+    }
   };
 
   return (
@@ -59,6 +80,7 @@ export default function Contact() {
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   required
+                  disabled={status === 'sending'}
                 />
               </div>
               <div className="form-field">
@@ -69,6 +91,7 @@ export default function Contact() {
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   required
+                  disabled={status === 'sending'}
                 />
               </div>
               <div className="form-field">
@@ -80,10 +103,18 @@ export default function Contact() {
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   required
+                  disabled={status === 'sending'}
                 />
               </div>
-              <button type="submit" className="btn btn-primary form-btn" disabled={sent}>
-                {sent ? '✓ Sent!' : <><FiSend /> Send Message</>}
+              <button
+                type="submit"
+                className={`btn form-btn ${status === 'sent' ? 'btn-success' : status === 'error' ? 'btn-error' : 'btn-primary'}`}
+                disabled={status === 'sending' || status === 'sent'}
+              >
+                {status === 'idle' && <><FiSend /> Send Message</>}
+                {status === 'sending' && <><span className="spinner"></span> Sending...</>}
+                {status === 'sent' && <><FiCheck /> Message Sent!</>}
+                {status === 'error' && <><FiAlertCircle /> Failed — Try Again</>}
               </button>
             </form>
           </div>
