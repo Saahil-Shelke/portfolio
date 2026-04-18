@@ -33,7 +33,22 @@ export default function About() {
 
               <div className="about-bio-block">
                 <span className="bio-decorator">{'"""'}</span>
-                <p className="about-bio">{personalInfo.bio}</p>
+                <div className="about-bio">
+                  <p>
+                    Passionate about leveraging <span className="bio-highlight">AI & Machine Learning</span> to 
+                    solve real-world problems. Currently pursuing my Master's in Computer Science 
+                    at <span className="bio-highlight">TU Dresden</span>.
+                  </p>
+                  <p>
+                    My toolbox includes <span className="bio-highlight">Python</span>, <span className="bio-highlight">FastAPI</span>, <span className="bio-highlight">TensorFlow</span>, and 
+                    cloud platforms like <span className="bio-highlight">AWS</span> & <span className="bio-highlight">Azure</span> — 
+                    honed through both academic rigor and hands-on industry experience.
+                  </p>
+                  <p>
+                    Committed to continuous learning and applying technical acumen to drive 
+                    forward the intersection of software engineering and intelligent systems.
+                  </p>
+                </div>
                 <span className="bio-decorator">{'"""'}</span>
               </div>
             </div>

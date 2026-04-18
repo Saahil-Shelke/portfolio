@@ -20,9 +20,9 @@
 }
 .about-code p { white-space: nowrap; }
 
-/* Bio as Python docstring inside the terminal */
+/* Bio docstring */
 .about-bio-block {
-  margin-top: var(--space-md);
+  margin-top: var(--space-lg);
   padding: var(--space-md) var(--space-lg);
   background: rgba(195, 232, 141, 0.03);
   border-left: 2px solid rgba(195, 232, 141, 0.2);
@@ -33,16 +33,27 @@
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
   color: #c3e88d;
-  opacity: 0.6;
+  opacity: 0.5;
   display: block;
   line-height: 1.2;
 }
 
 .about-bio {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+}
+
+.about-bio p {
   color: var(--text-secondary);
   line-height: 1.8;
   font-size: var(--fs-sm);
-  padding: var(--space-sm) 0;
+}
+
+.bio-highlight {
+  color: var(--accent-primary);
+  font-weight: 500;
 }
 
 /* Stats */
