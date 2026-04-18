@@ -91,13 +91,13 @@ a:hover { color: var(--accent-secondary); }
 
 /* ===== SECTION ===== */
 .section {
-  padding: var(--space-4xl) var(--space-xl);
+  padding: var(--space-2xl) var(--space-xl);
   max-width: var(--max-width);
   margin: 0 auto;
 }
 
 .section-header {
-  margin-bottom: var(--space-3xl);
+  margin-bottom: var(--space-2xl);
   max-width: var(--content-width);
   margin-left: auto;
   margin-right: auto;
@@ -200,14 +200,14 @@ a:hover { color: var(--accent-secondary); }
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   :root { --nav-height: 56px; }
-  .section { padding: var(--space-3xl) var(--space-md); }
-  .section-header { margin-bottom: var(--space-2xl); }
+  .section { padding: var(--space-xl) var(--space-md); }
+  .section-header { margin-bottom: var(--space-lg); }
   .terminal-body { padding: var(--space-md); }
   .terminal-header { padding: 8px 12px; }
   .terminal-dot { width: 8px; height: 8px; }
 }
 
 @media (max-width: 480px) {
-  .section { padding: var(--space-2xl) var(--space-sm); }
+  .section { padding: var(--space-lg) var(--space-sm); }
   .terminal-body { padding: var(--space-sm); }
 }
