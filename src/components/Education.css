@@ -1,23 +1,55 @@
-.edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: var(--space-xl); }
-.edu-card {
-  padding: var(--space-2xl); position: relative; display: flex;
-  flex-direction: column; gap: var(--space-sm);
+/* Education section — Python terminal cards */
+.edu-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: var(--space-xl);
+  max-width: 900px;
+  margin: 0 auto;
 }
-.edu-card.current { border-color: var(--border-accent); }
-.edu-badge {
-  position: absolute; top: var(--space-md); right: var(--space-md);
-  font-family: var(--font-mono); font-size: var(--fs-xs);
-  color: var(--bg-primary); background: var(--accent-primary);
-  padding: 3px 12px; border-radius: var(--radius-sm); font-weight: 600;
+
+.edu-terminal {
+  transition: all var(--transition-base);
 }
-.edu-icon { color: var(--accent-primary); margin-bottom: var(--space-sm); }
-.edu-degree { font-size: var(--fs-lg); color: var(--text-primary); }
-.edu-institution { color: var(--accent-secondary); font-weight: 500; }
-.edu-location { color: var(--text-muted); font-size: var(--fs-sm); }
-.edu-period {
-  font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent-primary);
-  background: rgba(0,255,200,0.08); padding: 2px 10px;
-  border-radius: var(--radius-sm); display: inline-block; width: fit-content;
+
+.edu-terminal:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow-strong), var(--shadow-lg);
 }
-.edu-details { color: var(--text-secondary); font-size: var(--fs-sm); margin-top: var(--space-sm); }
-@media (max-width: 768px) { .edu-grid { grid-template-columns: 1fr; } }
+
+.edu-terminal.current {
+  border-color: var(--border-accent);
+}
+
+.running-badge {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: #28c840;
+  animation: pulse-glow-text 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow-text {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.edu-code {
+  font-family: var(--font-mono);
+  font-size: clamp(var(--fs-xs), 1.8vw, var(--fs-sm));
+  line-height: 1.9;
+}
+
+.edu-code .code-line {
+  display: flex;
+  align-items: baseline;
+  white-space: pre;
+  font-family: var(--font-mono);
+  font-size: inherit;
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .edu-container {
+    grid-template-columns: 1fr;
+  }
+}

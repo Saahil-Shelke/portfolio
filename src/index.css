@@ -138,7 +138,7 @@ a:hover {
   color: var(--accent-secondary);
 }
 
-/* ===== UTILITY CLASSES ===== */
+/* ===== SECTION LAYOUT ===== */
 .section {
   padding: var(--section-padding);
   max-width: var(--max-width);
@@ -148,6 +148,7 @@ a:hover {
 
 .section-header {
   margin-bottom: var(--space-3xl);
+  text-align: center;
 }
 
 .section-label {
@@ -173,7 +174,46 @@ a:hover {
   height: 3px;
   background: var(--gradient-accent);
   border-radius: 3px;
-  margin-top: var(--space-md);
+  margin: var(--space-md) auto 0;
+}
+
+/* ===== TERMINAL WINDOW (shared) ===== */
+.terminal-window {
+  background: rgba(10, 15, 28, 0.9);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-glow), var(--shadow-lg);
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal-dot.red { background: #ff5f57; }
+.terminal-dot.yellow { background: #febc2e; }
+.terminal-dot.green { background: #28c840; }
+
+.terminal-title {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin-left: 8px;
+}
+
+.terminal-body {
+  padding: var(--space-xl);
 }
 
 /* ===== GLASS CARD ===== */
@@ -189,6 +229,27 @@ a:hover {
 .glass-card:hover {
   border-color: var(--border-accent);
   box-shadow: var(--shadow-glow);
+}
+
+/* ===== SHARED CODE SYNTAX COLORS ===== */
+.code-keyword { color: #c792ea; font-weight: 600; }
+.code-class { color: #ffcb6b; }
+.code-func { color: #82aaff; }
+.code-paren { color: var(--text-muted); }
+.code-self { color: #f07178; font-style: italic; }
+.code-string { color: #c3e88d; }
+.code-string-triple { color: #c3e88d; }
+.code-comment { color: var(--text-muted); font-style: italic; }
+
+/* ===== LINE NUMBERS ===== */
+.line-num {
+  color: var(--text-muted);
+  min-width: 36px;
+  text-align: right;
+  margin-right: var(--space-lg);
+  user-select: none;
+  opacity: 0.5;
+  font-size: 0.85em;
 }
 
 /* ===== ANIMATIONS ===== */
@@ -241,6 +302,11 @@ a:hover {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ===== CURSOR ===== */
+.cursor { color: var(--accent-primary); }
+.cursor.hidden { display: none; }
+.cursor.blink { animation: blink 1s step-end infinite; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {

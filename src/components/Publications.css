@@ -1,13 +1,40 @@
-.pub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); }
-.pub-section-title {
-  display: flex; align-items: center; gap: var(--space-sm);
-  font-size: var(--fs-lg); color: var(--accent-primary); margin-bottom: var(--space-lg);
+/* Publications section — Python terminal */
+.pub-terminal {
+  max-width: 800px;
+  margin: 0 auto;
 }
-.pub-card { padding: var(--space-xl); margin-bottom: var(--space-md); }
-.pub-title { font-size: var(--fs-base); color: var(--text-primary); margin-bottom: var(--space-xs); }
-.pub-conference {
-  font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent-secondary);
-  display: inline-block; margin-bottom: var(--space-sm);
+
+.pub-section {
+  margin-bottom: var(--space-sm);
 }
-.pub-desc { color: var(--text-secondary); font-size: var(--fs-sm); line-height: 1.6; }
-@media (max-width: 768px) { .pub-grid { grid-template-columns: 1fr; } }
+
+.pub-class-def {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.pub-entry {
+  padding-left: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.pub-attr {
+  font-family: var(--font-mono);
+  font-size: clamp(var(--fs-xs), 1.6vw, var(--fs-sm));
+  line-height: 1.8;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+}
+
+.code-comment {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.pub-divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: var(--space-lg) 0;
+}

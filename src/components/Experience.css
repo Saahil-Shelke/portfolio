@@ -1,64 +1,103 @@
-.timeline { position: relative; padding-left: var(--space-3xl); }
-.timeline-item {
-  display: flex; gap: var(--space-xl); margin-bottom: var(--space-2xl); position: relative;
+/* Experience section — terminal-style Python classes */
+.exp-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  max-width: 800px;
+  margin: 0 auto;
 }
-.timeline-marker {
-  position: absolute; left: calc(-1 * var(--space-3xl)); display: flex;
-  flex-direction: column; align-items: center;
+
+.exp-terminal {
+  transition: all var(--transition-base);
 }
-.timeline-dot {
-  width: 14px; height: 14px; border-radius: 50%; background: var(--accent-primary);
-  border: 3px solid var(--bg-primary); box-shadow: 0 0 10px rgba(0,255,200,0.4);
-  z-index: 1; flex-shrink: 0;
+
+.exp-terminal:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow-strong), var(--shadow-lg);
 }
-.timeline-line {
-  width: 2px; flex: 1; background: linear-gradient(to bottom, var(--accent-primary), transparent);
-  margin-top: 4px; min-height: 60px;
+
+.exp-code {
+  font-family: var(--font-mono);
+  font-size: clamp(var(--fs-xs), 1.8vw, var(--fs-sm));
+  line-height: 1.9;
 }
-.timeline-card {
-  flex: 1; padding: var(--space-xl); cursor: pointer;
+
+.exp-code .code-line {
+  display: flex;
+  align-items: baseline;
+  white-space: pre;
+  font-family: var(--font-mono);
+  font-size: inherit;
+  color: var(--text-primary);
 }
-.timeline-card-header {
-  display: flex; justify-content: space-between; align-items: flex-start;
+
+.exp-expand-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) 0;
+  margin-top: var(--space-sm);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  border-top: 1px solid var(--border-subtle);
+  transition: all var(--transition-fast);
 }
-.timeline-period {
-  font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent-primary);
-  background: rgba(0,255,200,0.08); padding: 2px 10px; border-radius: var(--radius-sm);
-  display: inline-block; margin-bottom: var(--space-sm);
+
+.exp-expand-trigger:hover {
+  background: rgba(0, 255, 200, 0.03);
 }
-.timeline-role {
-  font-size: var(--fs-xl); color: var(--text-primary); margin-bottom: var(--space-xs);
+
+.exp-expand-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
 }
-.timeline-company {
-  display: flex; align-items: center; gap: var(--space-sm);
-  color: var(--text-secondary); font-size: var(--fs-sm); margin-bottom: 2px;
+
+.exp-chevron {
+  color: var(--accent-primary);
+  transition: transform var(--transition-base);
+  flex-shrink: 0;
 }
-.timeline-location {
-  display: flex; align-items: center; gap: var(--space-sm);
-  color: var(--text-muted); font-size: var(--fs-xs);
+
+.exp-chevron.rotated {
+  transform: rotate(180deg);
 }
-.timeline-chevron {
-  color: var(--accent-primary); transition: transform var(--transition-base);
-  flex-shrink: 0; margin-top: 4px;
+
+.exp-bullets {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.timeline-chevron.rotated { transform: rotate(180deg); }
-.timeline-bullets {
-  max-height: 0; overflow: hidden; transition: max-height 0.4s ease, margin 0.4s ease;
+
+.exp-bullets.expanded {
+  max-height: 600px;
+  padding-top: var(--space-sm);
 }
-.timeline-item.expanded .timeline-bullets {
-  max-height: 500px; margin-top: var(--space-lg);
+
+.exp-bullets ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding-left: var(--space-md);
 }
-.timeline-bullets ul {
-  list-style: none; display: flex; flex-direction: column; gap: var(--space-sm);
+
+.exp-bullets li {
+  color: var(--text-secondary);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
 }
-.timeline-bullets li {
-  position: relative; padding-left: var(--space-xl); color: var(--text-secondary);
-  font-size: var(--fs-sm); line-height: 1.6;
+
+.bullet-prefix {
+  color: var(--accent-primary);
+  font-family: var(--font-mono);
+  font-weight: 600;
 }
-.timeline-bullets li::before {
-  content: '▹'; position: absolute; left: 0; color: var(--accent-primary);
-}
+
 @media (max-width: 768px) {
-  .timeline { padding-left: var(--space-xl); }
-  .timeline-marker { left: calc(-1 * var(--space-xl)); }
+  .exp-code .code-line {
+    font-size: var(--fs-xs);
+  }
 }

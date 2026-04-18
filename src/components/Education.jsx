@@ -1,6 +1,5 @@
 import { education } from '../data/portfolioData';
 import { useScrollReveal } from '../hooks';
-import { FiBookOpen } from 'react-icons/fi';
 import './Education.css';
 
 export default function Education() {
@@ -10,20 +9,64 @@ export default function Education() {
     <section className="section" id="education">
       <div ref={ref} className={`reveal ${visible ? 'visible' : ''}`}>
         <div className="section-header">
-          <span className="section-label">{'// education'}</span>
+          <span className="section-label">{'# education.py'}</span>
           <h2 className="section-title">Academic Background</h2>
           <div className="section-divider"></div>
         </div>
-        <div className="edu-grid">
-          {education.map((edu) => (
-            <div key={edu.id} className={`edu-card glass-card ${edu.current ? 'current' : ''}`}>
-              {edu.current && <span className="edu-badge">Currently Pursuing</span>}
-              <div className="edu-icon"><FiBookOpen size={24} /></div>
-              <h3 className="edu-degree">{edu.degree}</h3>
-              <p className="edu-institution">{edu.institution}</p>
-              <p className="edu-location">{edu.location}</p>
-              <span className="edu-period">{edu.period}</span>
-              <p className="edu-details">{edu.details}</p>
+        <div className="edu-container">
+          {education.map((edu, i) => (
+            <div key={edu.id} className={`terminal-window edu-terminal ${edu.current ? 'current' : ''}`}>
+              <div className="terminal-header">
+                <span className="terminal-dot red"></span>
+                <span className="terminal-dot yellow"></span>
+                <span className="terminal-dot green"></span>
+                <span className="terminal-title">
+                  {edu.institution.toLowerCase().replace(/[\s()]/g, '_')}.py
+                </span>
+                {edu.current && <span className="running-badge">● running</span>}
+              </div>
+              <div className="terminal-body">
+                <div className="edu-code">
+                  <p className="code-line">
+                    <span className="line-num">{i * 7 + 1}</span>
+                    <span className="code-keyword">class</span>{' '}
+                    <span className="code-class">{edu.degree.split(' ').slice(-2).join('')}</span>:
+                  </p>
+                  <p className="code-line">
+                    <span className="line-num">{i * 7 + 2}</span>
+                    {'    '}degree ={' '}
+                    <span className="code-string">"{edu.degree}"</span>
+                  </p>
+                  <p className="code-line">
+                    <span className="line-num">{i * 7 + 3}</span>
+                    {'    '}institution ={' '}
+                    <span className="code-string">"{edu.institution}"</span>
+                  </p>
+                  <p className="code-line">
+                    <span className="line-num">{i * 7 + 4}</span>
+                    {'    '}location ={' '}
+                    <span className="code-string">"{edu.location}"</span>
+                  </p>
+                  <p className="code-line">
+                    <span className="line-num">{i * 7 + 5}</span>
+                    {'    '}period ={' '}
+                    <span className="code-string">"{edu.period}"</span>
+                  </p>
+                  <p className="code-line">
+                    <span className="line-num">{i * 7 + 6}</span>
+                    {'    '}details ={' '}
+                    <span className="code-string">"{edu.details}"</span>
+                  </p>
+                  {edu.current && (
+                    <p className="code-line">
+                      <span className="line-num">{i * 7 + 7}</span>
+                      {'    '}status ={' '}
+                      <span className="code-keyword">True</span>
+                      <span className="cursor blink">█</span>
+                    </p>
+                  )}
+                </div>
+              </div>
             </div>
           ))}
         </div>

@@ -1,26 +1,98 @@
+/* Skills section — Python dict/list inside terminal */
+.skills-terminal {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.skills-pip {
+  margin-bottom: var(--space-xl);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: 2;
+}
+
+.pip-prompt {
+  color: var(--accent-primary);
+}
+
+.prompt-symbol {
+  color: var(--accent-primary);
+  font-weight: 700;
+}
+
 .skills-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: var(--space-xl);
 }
-.skill-category { padding: var(--space-xl); }
+
+.skill-category {
+  padding-left: var(--space-lg);
+}
+
 .skill-category-title {
-  font-size: var(--fs-base); color: var(--accent-primary);
-  margin-bottom: var(--space-lg); font-weight: 500;
-  padding-bottom: var(--space-sm); border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
 }
-.skill-tags { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+
+.dict-key {
+  color: #c3e88d;
+}
+
+.dict-colon {
+  color: var(--text-muted);
+}
+
+.dict-bracket, .dict-bracket-close {
+  color: var(--accent-primary);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  padding-left: var(--space-lg);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding: var(--space-sm) 0;
+  padding-left: var(--space-xl);
+}
+
 .skill-tag {
-  font-family: var(--font-mono); font-size: var(--fs-sm);
-  color: var(--text-primary); background: rgba(0,255,200,0.06);
-  padding: 8px 16px; border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--text-primary);
+  background: rgba(0, 255, 200, 0.06);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
   border: 1px solid var(--border-subtle);
-  transition: all var(--transition-base); cursor: default;
+  transition: all var(--transition-base);
+  cursor: default;
 }
+
 .skill-tag:hover {
-  border-color: var(--accent-primary); background: rgba(0,255,200,0.12);
-  transform: translateY(-3px); box-shadow: var(--shadow-glow);
-  animation: float 2s ease-in-out infinite;
+  border-color: var(--accent-primary);
+  background: rgba(0, 255, 200, 0.12);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow);
 }
+
+.skill-quote {
+  color: #c3e88d;
+  font-weight: 500;
+}
+
 @media (max-width: 768px) {
-  .skills-grid { grid-template-columns: 1fr; }
+  .skill-tags {
+    padding-left: var(--space-md);
+  }
+  .skill-category {
+    padding-left: var(--space-sm);
+  }
 }

@@ -184,10 +184,11 @@ export const volunteering = [
 ];
 
 export const navLinks = [
-  { id: "about", label: "~/about" },
-  { id: "experience", label: "~/experience" },
-  { id: "projects", label: "~/projects" },
-  { id: "skills", label: "~/skills" },
-  { id: "education", label: "~/education" },
-  { id: "contact", label: "~/contact" },
+  { id: "about", label: "about" },
+  { id: "experience", label: "experience" },
+  { id: "projects", label: "projects" },
+  { id: "skills", label: "skills" },
+  { id: "education", label: "education" },
+  { id: "publications", label: "achievements" },
+  { id: "contact", label: "contact" },
 ];

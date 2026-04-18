@@ -15,11 +15,13 @@ export default function Footer() {
           </a>
         </div>
         <p className="footer-text">
-          <span className="footer-code">{'<'}</span>
-          Built with <FiHeart size={14} className="footer-heart" /> & React
-          <span className="footer-code">{' />'}</span>
+          <span className="footer-code">{'# '}</span>
+          Built with <FiHeart size={14} className="footer-heart" /> & Python vibes
         </p>
-        <p className="footer-copy">© {new Date().getFullYear()} {personalInfo.name}</p>
+        <p className="footer-copy">
+          <span className="footer-code">{'>>> '}</span>
+          {`print(f"© ${new Date().getFullYear()} ${personalInfo.name}")`}
+        </p>
       </div>
     </footer>
   );

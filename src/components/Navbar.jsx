@@ -24,9 +24,10 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar">
       <div className="navbar-inner">
         <a href="#" className="navbar-logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <span className="logo-bracket">&lt;</span>
-          <span className="logo-text">SS</span>
-          <span className="logo-bracket"> /&gt;</span>
+          <span className="logo-prompt">{'>>>'}</span>{' '}
+          <span className="logo-text">sahil</span>
+          <span className="logo-dot">.</span>
+          <span className="logo-method">py</span>
         </a>
         <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
           {navLinks.map((link) => (
@@ -35,7 +36,7 @@ export default function Navbar() {
                 className={`nav-link ${active === link.id ? 'active' : ''}`}
                 onClick={() => handleClick(link.id)}
               >
-                {link.label}
+                <span className="nav-import">from</span> portfolio <span className="nav-import">import</span> {link.label}
               </button>
             </li>
           ))}
