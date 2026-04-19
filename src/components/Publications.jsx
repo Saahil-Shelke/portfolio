@@ -1,6 +1,6 @@
 import { publications, awards, volunteering } from '../data/portfolioData';
 import { useScrollReveal } from '../hooks';
-import { FiFileText, FiAward, FiUsers } from 'react-icons/fi';
+import { FiFileText, FiAward, FiUsers, FiExternalLink } from 'react-icons/fi';
 import './Publications.css';
 
 export default function Publications() {
@@ -26,6 +26,11 @@ export default function Publications() {
                 <h4 className="achievement-title">{pub.title}</h4>
                 <span className="achievement-venue">{pub.conference}</span>
                 <p className="achievement-desc">{pub.description}</p>
+                {pub.link && (
+                  <a href={pub.link} target="_blank" rel="noopener noreferrer" className="achievement-link">
+                    <FiExternalLink size={12} /> View on IEEE Xplore
+                  </a>
+                )}
               </div>
             ))}
           </div>

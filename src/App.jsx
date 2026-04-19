@@ -9,6 +9,7 @@ import Skills from './components/Skills';
 import Education from './components/Education';
 import Publications from './components/Publications';
 import Contact from './components/Contact';
+import EasterEgg from './components/EasterEgg';
 import Footer from './components/Footer';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Publications />
         <Contact />
       </main>
+      <EasterEgg />
       <Footer />
     </div>
   );

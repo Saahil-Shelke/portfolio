@@ -25,28 +25,36 @@ export default function About() {
             <div className="terminal-body about-body">
               <div className="about-code">
                 <p><span className="code-keyword">class</span> <span className="code-class">Developer</span>:</p>
-                <p>    name = <span className="code-string">"{personalInfo.name}"</span></p>
-                <p>    role = <span className="code-string">"{personalInfo.title}"</span></p>
-                <p>    location = <span className="code-string">"{personalInfo.location}"</span></p>
-                <p>    education = <span className="code-string">"MS CS @ TU Dresden"</span></p>
+                <p></p>
+                <p>    <span className="code-keyword">def</span> <span className="code-func">__init__</span>(<span className="code-self">self</span>):</p>
+                <p>        <span className="code-self">self</span>.name = <span className="code-string">"{personalInfo.name}"</span></p>
+                <p>        <span className="code-self">self</span>.role = <span className="code-string">"{personalInfo.title}"</span></p>
+                <p>        <span className="code-self">self</span>.location = <span className="code-string">"{personalInfo.location}"</span></p>
+                <p>        <span className="code-self">self</span>.education = <span className="code-string">"MS CS @ TU Dresden"</span></p>
+                <p></p>
+                <p>    <span className="code-keyword">def</span> <span className="code-func">get_skills</span>(<span className="code-self">self</span>):</p>
+                <p>        <span className="code-keyword">return</span> [<span className="code-string">"Python"</span>, <span className="code-string">"FastAPI"</span>, <span className="code-string">"TensorFlow"</span>, <span className="code-string">"AWS"</span>]</p>
+                <p></p>
+                <p>    <span className="code-keyword">def</span> <span className="code-func">get_passion</span>(<span className="code-self">self</span>):</p>
+                <p>        <span className="code-keyword">return</span> <span className="code-string">"Building AI-powered solutions"</span></p>
               </div>
 
               <div className="about-bio-block">
                 <span className="bio-decorator">{'"""'}</span>
                 <div className="about-bio">
                   <p>
-                    Passionate about leveraging <span className="bio-highlight">AI & Machine Learning</span> to 
-                    solve real-world problems. Currently pursuing my Master's in Computer Science 
+                    Passionate about leveraging <span className="bio-highlight">AI & Machine Learning</span> to
+                    solve real-world problems. Currently pursuing my Master's in Computer Science
                     at <span className="bio-highlight">TU Dresden</span>.
                   </p>
                   <p>
-                    My toolbox includes <span className="bio-highlight">Python</span>, <span className="bio-highlight">FastAPI</span>, <span className="bio-highlight">TensorFlow</span>, and 
-                    cloud platforms like <span className="bio-highlight">AWS</span> & <span className="bio-highlight">Azure</span> — 
-                    honed through both academic rigor and hands-on industry experience.
+                    My toolbox includes <span className="bio-highlight">Python</span>, <span className="bio-highlight">FastAPI</span>, <span className="bio-highlight">TensorFlow</span>, and
+                    cloud platforms like <span className="bio-highlight">AWS</span> & <span className="bio-highlight">Azure</span> —
+                    honed through building production systems serving 500+ users.
                   </p>
                   <p>
-                    Committed to continuous learning and applying technical acumen to drive 
-                    forward the intersection of software engineering and intelligent systems.
+                    Committed to continuous learning and shipping software that
+                    makes a measurable difference.
                   </p>
                 </div>
                 <span className="bio-decorator">{'"""'}</span>
