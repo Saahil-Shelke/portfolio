@@ -20,6 +20,10 @@
 }
 .about-code p { white-space: nowrap; }
 
+/* Indentation helpers — replaces collapsing spaces */
+.code-indent  { display: inline-block; width: 2rem; }
+.code-indent2 { display: inline-block; width: 4rem; }
+
 /* Bio docstring */
 .about-bio-block {
   margin-top: var(--space-lg);
@@ -38,17 +42,32 @@
   line-height: 1.2;
 }
 
+/* Replaced <p> blocks with a tight list to break up the wall of text */
 .about-bio {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-sm) 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
-  padding: var(--space-md) 0;
+  gap: var(--space-sm);
 }
 
-.about-bio p {
+.about-bio li {
   color: var(--text-secondary);
-  line-height: 1.8;
+  line-height: 1.7;
   font-size: var(--fs-sm);
+  padding-left: var(--space-md);
+  position: relative;
+}
+
+.about-bio li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent-primary);
+  opacity: 0.6;
+  font-size: 0.7em;
+  top: 0.25em;
 }
 
 .bio-highlight {
