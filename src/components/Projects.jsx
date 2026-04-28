@@ -10,9 +10,9 @@ export default function Projects() {
     <section className="section" id="projects">
       <div ref={ref} className={`reveal ${visible ? 'visible' : ''}`}>
         <div className="section-header">
-          <span className="section-label"># projects</span>
-          <h2 className="section-title">Featured Projects</h2>
-          <div className="section-divider"></div>
+          <span className="section-label">
+            <span className="prompt-user">sahil@portfolio</span>:<span className="prompt-path">~</span>$ <span className="prompt-cmd">ls projects/</span>
+          </span>
         </div>
         <div className="projects-grid">
           {projects.map((project, i) => (

@@ -117,6 +117,7 @@ export default function Hero() {
 
     // Clear
     if (lower === 'clear') {
+      setBootLines([]);
       setTermLines([]);
       return;
     }

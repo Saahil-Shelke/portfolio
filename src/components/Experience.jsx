@@ -12,9 +12,9 @@ export default function Experience() {
     <section className="section" id="experience">
       <div ref={ref} className={`reveal ${visible ? 'visible' : ''}`}>
         <div className="section-header">
-          <span className="section-label"># experience</span>
-          <h2 className="section-title">Work Experience</h2>
-          <div className="section-divider"></div>
+          <span className="section-label">
+            <span className="prompt-user">sahil@portfolio</span>:<span className="prompt-path">~</span>$ <span className="prompt-cmd">cat experience.log</span>
+          </span>
         </div>
 
         <div className="exp-list">
