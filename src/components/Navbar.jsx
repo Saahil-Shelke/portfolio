@@ -24,9 +24,8 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar">
       <div className="navbar-inner">
         <a href="#" className="navbar-logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <span className="logo-prompt">{'>>>'}</span>
-          <span className="logo-name"> sahil</span>
-          <span className="logo-ext">.py</span>
+          <span className="logo-tilde">~/</span>
+          <span className="logo-name">sahil</span>
         </a>
         <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
           {navLinks.map((link) => (

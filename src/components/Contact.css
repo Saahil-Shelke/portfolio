@@ -28,6 +28,13 @@
 .contact-link:hover { color: var(--accent-primary); }
 .contact-link svg { color: var(--accent-primary); flex-shrink: 0; }
 
+.contact-form-wrap {
+  padding: var(--space-xl);
+  background: rgba(17, 24, 39, 0.4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
 /* Form */
 .contact-form {
   display: flex; flex-direction: column;

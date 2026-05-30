@@ -15,27 +15,14 @@ export default function Education() {
         </div>
         <div className="edu-list">
           {education.map((edu) => (
-            <div key={edu.id} className={`terminal-window edu-card ${edu.current ? 'current' : ''}`}>
-              <div className="terminal-header">
-                <span className="terminal-dot red"></span>
-                <span className="terminal-dot yellow"></span>
-                <span className="terminal-dot green"></span>
-                <span className="terminal-title">
-                  {edu.degree.split(' ')[0].toLowerCase()}.py
-                </span>
-                {edu.current && <span className="edu-running">● active</span>}
-              </div>
-              <div className="terminal-body">
+            <div key={edu.id} className={`edu-card ${edu.current ? 'current' : ''}`}>
+              <div className="edu-card-top">
                 <h3 className="edu-degree">{edu.degree}</h3>
-                <p className="edu-institution">{edu.institution}</p>
-                <p className="edu-meta">{edu.location} · {edu.period}</p>
-                <p className="edu-details">{edu.details}</p>
-                {edu.current && (
-                  <span className="edu-cursor">
-                    <span className="cursor blink">█</span>
-                  </span>
-                )}
+                {edu.current && <span className="edu-badge">active</span>}
               </div>
+              <p className="edu-institution">{edu.institution}</p>
+              <p className="edu-meta">{edu.location} · {edu.period}</p>
+              <p className="edu-details">{edu.details}</p>
             </div>
           ))}
         </div>

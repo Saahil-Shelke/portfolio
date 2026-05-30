@@ -1,4 +1,4 @@
-.skills-terminal {
+.skills-container {
   max-width: var(--content-width);
   margin: 0 auto;
 }
@@ -11,11 +11,11 @@
 .skill-group-title {
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
-  color: var(--accent-primary);
+  color: var(--text-muted);
   font-weight: 500;
   margin-bottom: var(--space-sm);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
 }
 
 .skill-items {
@@ -24,19 +24,22 @@
 
 .skill-chip {
   font-family: var(--font-mono); font-size: var(--fs-sm);
-  color: var(--text-primary);
-  background: rgba(255,255,255,0.04);
+  color: var(--text-secondary);
+  background: rgba(255,255,255,0.03);
   padding: 6px 14px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-subtle);
   transition: all var(--transition-fast);
   cursor: default;
+  will-change: transform;
 }
 
 .skill-chip:hover {
   border-color: var(--accent-primary);
   color: var(--accent-primary);
   background: rgba(0, 255, 200, 0.06);
+  box-shadow: 0 0 12px rgba(0, 255, 200, 0.1);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {

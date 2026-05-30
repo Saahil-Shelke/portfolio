@@ -64,14 +64,8 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="terminal-window contact-form-wrap">
-            <div className="terminal-header">
-              <span className="terminal-dot red"></span>
-              <span className="terminal-dot yellow"></span>
-              <span className="terminal-dot green"></span>
-              <span className="terminal-title">send_message.py</span>
-            </div>
-            <form className="terminal-body contact-form" onSubmit={handleSubmit}>
+          <div className="contact-form-wrap">
+            <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-field">
                 <label className="form-label">name</label>
                 <input
@@ -119,6 +113,7 @@ export default function Contact() {
             </form>
           </div>
         </div>
+
       </div>
     </section>
   );

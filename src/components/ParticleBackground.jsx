@@ -8,8 +8,8 @@ export default function ParticleBackground() {
     const ctx = canvas.getContext('2d');
     let animId;
     let particles = [];
-    const PARTICLE_COUNT = 80;
-    const CONNECTION_DIST = 150;
+    const PARTICLE_COUNT = 35;
+    const CONNECTION_DIST = 120;
     const mouse = { x: null, y: null };
 
     function resize() {
@@ -49,7 +49,7 @@ export default function ParticleBackground() {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0, 255, 200, 0.4)';
+        ctx.fillStyle = 'rgba(0, 255, 200, 0.25)';
         ctx.fill();
       }
     }
@@ -68,7 +68,7 @@ export default function ParticleBackground() {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(0, 255, 200, ${0.12 * (1 - dist / CONNECTION_DIST)})`;
+            ctx.strokeStyle = `rgba(0, 255, 200, ${0.07 * (1 - dist / CONNECTION_DIST)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

@@ -1,6 +1,46 @@
-import { personalInfo } from '../data/portfolioData';
+import { useState, useEffect, useRef } from 'react';
 import { useScrollReveal } from '../hooks';
+import profileImg from '../assets/profile.svg';
 import './About.css';
+
+const STATS = [
+  { value: 2, suffix: '+', label: 'Years Experience' },
+  { value: 6, suffix: '+', label: 'Projects Shipped' },
+  { value: 15, suffix: '+', label: 'Technologies' },
+  { value: 1,  suffix: '',  label: 'IEEE Publication' },
+];
+
+function StatCard({ value, suffix, label, animate }) {
+  const [count, setCount] = useState(0);
+  const started = useRef(false);
+
+  useEffect(() => {
+    if (!animate || started.current) return;
+    started.current = true;
+    if (value === 0) return;
+    let current = 0;
+    const steps = 50;
+    const increment = value / steps;
+    const delay = 900 / steps;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= value) {
+        setCount(value);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, delay);
+    return () => clearInterval(timer);
+  }, [animate, value]);
+
+  return (
+    <div className="stat-card">
+      <span className="stat-number">{animate ? count : 0}{suffix}</span>
+      <span className="stat-label">{label}</span>
+    </div>
+  );
+}
 
 export default function About() {
   const { ref, visible } = useScrollReveal();
@@ -14,68 +54,34 @@ export default function About() {
           <div className="section-divider"></div>
         </div>
 
-        <div className="about-layout">
-          <div className="terminal-window">
-            <div className="terminal-header">
-              <span className="terminal-dot red"></span>
-              <span className="terminal-dot yellow"></span>
-              <span className="terminal-dot green"></span>
-              <span className="terminal-title">about.py</span>
-            </div>
-            <div className="terminal-body about-body">
-              <div className="about-code">
-                <p><span className="code-keyword">class</span> <span className="code-class">Developer</span>:</p>
-                <p>&nbsp;</p>
-                <p><span className="code-indent" /><span className="code-keyword">def</span> <span className="code-func">__init__</span>(<span className="code-self">self</span>):</p>
-                <p><span className="code-indent2" /><span className="code-self">self</span>.name = <span className="code-string">"{personalInfo.name}"</span></p>
-                <p><span className="code-indent2" /><span className="code-self">self</span>.role = <span className="code-string">"{personalInfo.title}"</span></p>
-                <p><span className="code-indent2" /><span className="code-self">self</span>.location = <span className="code-string">"{personalInfo.location}"</span></p>
-                <p><span className="code-indent2" /><span className="code-self">self</span>.education = <span className="code-string">"MS CS @ TU Dresden"</span></p>
-                <p>&nbsp;</p>
-                <p><span className="code-indent" /><span className="code-keyword">def</span> <span className="code-func">get_skills</span>(<span className="code-self">self</span>):</p>
-                <p><span className="code-indent2" /><span className="code-keyword">return</span> [<span className="code-string">"Python"</span>, <span className="code-string">"FastAPI"</span>, <span className="code-string">"TensorFlow"</span>, <span className="code-string">"AWS"</span>]</p>
-                <p>&nbsp;</p>
-                <p><span className="code-indent" /><span className="code-keyword">def</span> <span className="code-func">get_passion</span>(<span className="code-self">self</span>):</p>
-                <p><span className="code-indent2" /><span className="code-keyword">return</span> <span className="code-string">"Building AI-powered solutions"</span></p>
-              </div>
-
-              <div className="about-bio-block">
-                <span className="bio-decorator">{'"""'}</span>
-                <ul className="about-bio">
-                  <li>
-                    Pursuing <span className="bio-highlight">MS Computer Science</span> at TU Dresden,
-                    focused on <span className="bio-highlight">AI & Machine Learning</span>.
-                  </li>
-                  <li>
-                    Built production systems with <span className="bio-highlight">Python</span>, <span className="bio-highlight">FastAPI</span>,{' '}
-                    <span className="bio-highlight">TensorFlow</span>, <span className="bio-highlight">AWS</span> &{' '}
-                    <span className="bio-highlight">Azure</span> — serving 500+ users.
-                  </li>
-                  <li>
-                    Shipping software that makes a <span className="bio-highlight">measurable difference</span>.
-                  </li>
-                </ul>
-                <span className="bio-decorator">{'"""'}</span>
-              </div>
+        <div className="about-grid">
+          <div className="about-img-col">
+            <div className="profile-frame">
+              <img src={profileImg} alt="Sahil Shelke" className="profile-img" />
             </div>
           </div>
 
-          <div className="about-stats">
-            <div className="stat-card">
-              <span className="stat-number">2+</span>
-              <span className="stat-label">Years Experience</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">6+</span>
-              <span className="stat-label">Projects Shipped</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">15+</span>
-              <span className="stat-label">Technologies</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">1</span>
-              <span className="stat-label">IEEE Publication</span>
+          <div className="about-text-col">
+            <p className="about-para">
+              Pursuing <span className="bio-highlight">MS Computer Science</span> at TU Dresden,
+              focused on <span className="bio-highlight">AI & Machine Learning</span>.
+            </p>
+            <p className="about-para">
+              Built production systems with <span className="bio-highlight">Python</span>,{' '}
+              <span className="bio-highlight">FastAPI</span>,{' '}
+              <span className="bio-highlight">TensorFlow</span>,{' '}
+              <span className="bio-highlight">AWS</span> &{' '}
+              <span className="bio-highlight">Azure</span> — serving 500+ users.
+            </p>
+            <p className="about-para">
+              I care about shipping software that makes a{' '}
+              <span className="bio-highlight">measurable difference</span>.
+            </p>
+
+            <div className="about-stats">
+              {STATS.map((s) => (
+                <StatCard key={s.label} {...s} animate={visible} />
+              ))}
             </div>
           </div>
         </div>

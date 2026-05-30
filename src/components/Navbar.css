@@ -19,9 +19,8 @@
   text-decoration: none; display: flex; align-items: center;
 }
 .navbar-logo:hover { opacity: 0.85; }
-.logo-prompt { color: var(--accent-primary); }
+.logo-tilde { color: var(--accent-primary); }
 .logo-name { color: var(--text-primary); }
-.logo-ext { color: var(--text-muted); }
 
 /* Links */
 .navbar-links {

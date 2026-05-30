@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="footer-inner">
         <div className="footer-left">
           <span className="footer-brand">
-            <span className="footer-prompt">{'>>>'}</span> sahil.py
+            <span className="footer-tilde">~/</span>sahil
           </span>
           <p className="footer-copy">
             {'©'} {new Date().getFullYear()} {personalInfo.name}

@@ -1,0 +1,60 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ffc8"/>
+      <stop offset="100%" stop-color="#00b4d8"/>
+    </linearGradient>
+    <radialGradient id="circleGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1e3a5f" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.3"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#bgGrad)"/>
+
+  <!-- Subtle dot grid -->
+  <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+    <circle cx="10" cy="10" r="0.7" fill="rgba(255,255,255,0.04)"/>
+  </pattern>
+  <rect width="400" height="400" fill="url(#dots)"/>
+
+  <!-- Center circle bg -->
+  <circle cx="200" cy="200" r="145" fill="url(#circleGrad)"/>
+
+  <!-- Outer accent ring -->
+  <circle cx="200" cy="200" r="145" fill="none" stroke="#00ffc8" stroke-width="1" stroke-opacity="0.2"/>
+
+  <!-- Inner dashed ring -->
+  <circle cx="200" cy="200" r="115" fill="none" stroke="#00ffc8" stroke-width="0.8" stroke-opacity="0.1" stroke-dasharray="5 8"/>
+
+  <!-- Initials -->
+  <text x="200" y="235"
+    font-family="'JetBrains Mono', 'Fira Code', Consolas, monospace"
+    font-size="105"
+    font-weight="700"
+    fill="url(#textGrad)"
+    text-anchor="middle"
+    letter-spacing="-4"
+    opacity="0.88">SS</text>
+
+  <!-- Corner bracket top-left -->
+  <line x1="16" y1="38" x2="48" y2="38" stroke="#00ffc8" stroke-width="2" stroke-opacity="0.35" stroke-linecap="round"/>
+  <line x1="16" y1="38" x2="16" y2="70" stroke="#00ffc8" stroke-width="2" stroke-opacity="0.35" stroke-linecap="round"/>
+
+  <!-- Corner bracket top-right -->
+  <line x1="384" y1="38" x2="352" y2="38" stroke="#00ffc8" stroke-width="2" stroke-opacity="0.35" stroke-linecap="round"/>
+  <line x1="384" y1="38" x2="384" y2="70" stroke="#00ffc8" stroke-width="2" stroke-opacity="0.35" stroke-linecap="round"/>
+
+  <!-- Corner bracket bottom-left -->
+  <line x1="16" y1="362" x2="48" y2="362" stroke="#00ffc8" stroke-width="2" stroke-opacity="0.35" stroke-linecap="round"/>
+  <line x1="16" y1="362" x2="16" y2="330" stroke="#00ffc8" stroke-width="2" stroke-opacity="0.35" stroke-linecap="round"/>
+
+  <!-- Corner bracket bottom-right -->
+  <line x1="384" y1="362" x2="352" y2="362" stroke="#00ffc8" stroke-width="2" stroke-opacity="0.35" stroke-linecap="round"/>
+  <line x1="384" y1="362" x2="384" y2="330" stroke="#00ffc8" stroke-width="2" stroke-opacity="0.35" stroke-linecap="round"/>
+</svg>

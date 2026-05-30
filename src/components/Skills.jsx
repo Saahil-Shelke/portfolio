@@ -14,26 +14,18 @@ export default function Skills() {
           <div className="section-divider"></div>
         </div>
 
-        <div className="terminal-window skills-terminal">
-          <div className="terminal-header">
-            <span className="terminal-dot red"></span>
-            <span className="terminal-dot yellow"></span>
-            <span className="terminal-dot green"></span>
-            <span className="terminal-title">skills.py</span>
-          </div>
-          <div className="terminal-body">
-            <div className="skills-list">
-              {Object.entries(skills).map(([category, items]) => (
-                <div key={category} className="skill-group">
-                  <h3 className="skill-group-title">{category}</h3>
-                  <div className="skill-items">
-                    {items.map((skill) => (
-                      <span key={skill} className="skill-chip">{skill}</span>
-                    ))}
-                  </div>
+        <div className="skills-container">
+          <div className="skills-list">
+            {Object.entries(skills).map(([category, items]) => (
+              <div key={category} className="skill-group">
+                <h3 className="skill-group-title">{category}</h3>
+                <div className="skill-items">
+                  {items.map((skill) => (
+                    <span key={skill} className="skill-chip">{skill}</span>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

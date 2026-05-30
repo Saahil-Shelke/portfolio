@@ -1,5 +1,7 @@
 import './App.css';
 import ParticleBackground from './components/ParticleBackground';
+import CursorTrail from './components/CursorTrail';
+import KonamiEgg from './components/KonamiEgg';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -15,6 +17,8 @@ function App() {
   return (
     <div className="app">
       <ParticleBackground />
+      <CursorTrail />
+      <KonamiEgg />
       <Navbar />
       <main>
         <Hero />

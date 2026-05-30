@@ -1,73 +1,54 @@
-.about-layout {
+.about-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--space-3xl);
   max-width: var(--content-width);
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2xl);
+  align-items: start;
 }
 
-.about-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.about-code {
-  font-family: var(--font-mono);
-  font-size: clamp(0.7rem, 2vw, var(--fs-sm));
-  line-height: 2;
-  overflow-x: auto;
-}
-.about-code p { white-space: nowrap; }
-
-/* Indentation helpers — replaces collapsing spaces */
-.code-indent  { display: inline-block; width: 2rem; }
-.code-indent2 { display: inline-block; width: 4rem; }
-
-/* Bio docstring */
-.about-bio-block {
-  margin-top: var(--space-lg);
-  padding: var(--space-md) var(--space-lg);
-  background: rgba(195, 232, 141, 0.03);
-  border-left: 2px solid rgba(195, 232, 141, 0.2);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-}
-
-.bio-decorator {
-  font-family: var(--font-mono);
-  font-size: var(--fs-sm);
-  color: #c3e88d;
-  opacity: 0.5;
-  display: block;
-  line-height: 1.2;
-}
-
-/* Replaced <p> blocks with a tight list to break up the wall of text */
-.about-bio {
-  list-style: none;
-  margin: 0;
-  padding: var(--space-sm) 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.about-bio li {
-  color: var(--text-secondary);
-  line-height: 1.7;
-  font-size: var(--fs-sm);
-  padding-left: var(--space-md);
+/* Profile image */
+.about-img-col {
   position: relative;
 }
 
-.about-bio li::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: var(--accent-primary);
-  opacity: 0.6;
-  font-size: 0.7em;
-  top: 0.25em;
+.profile-frame {
+  position: relative;
+  padding: 2px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #00ffc8 0%, #00b4d8 40%, #7c3aed 80%, #00ffc8 100%);
+  background-size: 300% 300%;
+  animation: ringShift 6s ease infinite;
+}
+
+@keyframes ringShift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+.profile-img {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+  transition: transform 0.4s ease;
+}
+
+.profile-frame:hover .profile-img {
+  transform: scale(1.02);
+}
+
+/* Bio text */
+.about-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.about-para {
+  color: var(--text-secondary);
+  font-size: var(--fs-base);
+  line-height: 1.8;
 }
 
 .bio-highlight {
@@ -79,18 +60,22 @@
 .about-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-md);
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
 }
 
 .stat-card {
   text-align: center;
-  padding: var(--space-lg) var(--space-md);
-  background: rgba(17, 24, 39, 0.4);
+  padding: var(--space-md) var(--space-sm);
+  background: rgba(17, 24, 39, 0.5);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  transition: border-color var(--transition-base);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
-.stat-card:hover { border-color: var(--border-accent); }
+.stat-card:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 0 16px rgba(0, 255, 200, 0.08);
+}
 
 .stat-number {
   font-family: var(--font-mono);
@@ -98,22 +83,30 @@
   font-weight: 700;
   color: var(--accent-primary);
   display: block;
+  line-height: 1;
+  margin-bottom: 4px;
 }
 
 .stat-label {
   font-size: var(--fs-xs);
   color: var(--text-muted);
-  margin-top: var(--space-xs);
   display: block;
 }
 
 @media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+  .about-img-col {
+    max-width: 220px;
+    margin: 0 auto;
+  }
   .about-stats { grid-template-columns: repeat(2, 1fr); }
-  .about-bio-block { padding: var(--space-sm) var(--space-md); }
 }
 
 @media (max-width: 480px) {
-  .about-stats { gap: var(--space-sm); }
-  .stat-card { padding: var(--space-md) var(--space-sm); }
+  .about-stats { gap: var(--space-xs); }
+  .stat-card { padding: var(--space-md) var(--space-xs); }
   .stat-number { font-size: var(--fs-xl); }
 }
